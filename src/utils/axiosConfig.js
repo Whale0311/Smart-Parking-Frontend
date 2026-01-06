@@ -1,13 +1,12 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000', // Địa chỉ Backend của bạn
+    baseURL: 'https://smart-parking-backend-y2kn.onrender.com', 
     headers: {
         'Content-Type': 'application/json',
     },
 });
 
-// Interceptor: Tự động gắn Token vào Header
 instance.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('token');

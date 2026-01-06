@@ -1,4 +1,5 @@
-const API_BASE_URL = 'http://localhost:3000';
+//const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://smart-parking-backend-y2kn.onrender.com';
 const THINGSPEAK_URL = 'https://api.thingspeak.com/channels/3122919/feeds/last.json?api_key=QX1T5U4DAF75TNQ2';
 
 const apiClient = {
