@@ -71,7 +71,7 @@ const UserDashboard = () => {
 
       <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
         
-        {/* PHẦN 1: THÔNG TIN THẺ & VÍ (HIỂN THỊ LUÔN) */}
+        {/* PHẦN 1: THÔNG TIN THẺ & VÍ (ĐÃ SỬA: Ẩn Biển số và Loại xe) */}
         <div className="bg-white p-6 rounded-xl shadow-sm">
             <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <Wallet className="text-blue-600"/> Thông tin thẻ của bạn
@@ -90,19 +90,14 @@ const UserDashboard = () => {
                             <p className="text-blue-100 text-sm uppercase tracking-wider">Số dư khả dụng</p>
                             <p className="text-3xl font-bold mt-1">{myCardData?.balance?.toLocaleString()} đ</p>
                         </div>
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-                            {myCardData?.vehicle_type === 'car' ? 'Ô tô' : 'Xe máy'}
-                        </span>
+                        {/* Đã xóa phần hiển thị Loại xe (Ô tô/Xe máy) ở đây */}
                     </div>
                     <div className="flex justify-between items-end">
                         <div>
                             <p className="text-blue-100 text-xs">Chủ thẻ</p>
                             <p className="font-medium text-lg">{myCardData?.owner_name}</p>
                         </div>
-                        <div className="text-right">
-                            <p className="text-blue-100 text-xs">Biển số</p>
-                            <p className="font-mono font-bold text-lg">{myCardData?.license_plate}</p>
-                        </div>
+                        {/* Đã xóa phần hiển thị Biển số xe ở đây */}
                     </div>
                 </div>
             )}

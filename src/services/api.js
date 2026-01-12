@@ -56,6 +56,7 @@ const apiClient = {
 export const api = {
   // Auth
   login: (email, password) => apiClient.post('/auth/login', { email, password }, false),  
+  
   // ThingSpeak - Lấy dữ liệu cảm biến
   getParkingSlots: async () => {
     try {
@@ -80,13 +81,21 @@ export const api = {
     }
   },
   
-  // Admin - Quản lý thẻ (Yêu cầu Auth = true)
+  // --- USER MANAGEMENT (MỚI THÊM) ---
+  getAllUsers: () => apiClient.get('/admin/users', true),
+  getUserById: (userId) => apiClient.get(`/users/${userId}`, true),
+  deleteUser: (userId) => apiClient.delete(`/admin/users/${userId}`, true),
+  // --- CARD MANAGEMENT (ADMIN) ---
   registerCard: (cardData) => apiClient.post('/admin/cards', cardData, true),
   rechargeCard: (cardId, amount) => apiClient.post(`/admin/cards/${cardId}/recharge`, { amount }, true),
   getCardDetails: (cardId) => apiClient.get(`/admin/cards/${cardId}`, true),
   getCardHistory: (cardId) => apiClient.get(`/admin/cards/${cardId}/history`, true),
   deleteCard: (cardId) => apiClient.delete(`/admin/cards/${cardId}`, true),
+  
+  // --- SYSTEM ---
   createUser: (userData) => apiClient.post('/admin/create_user', userData, true),
+  
+  // --- USER PERSONAL ---
   getMyCardInfo: () => apiClient.get('/api/user/my-card', true),
   getMyCardHistory: () => apiClient.get('/api/user/my-history', true),
 };
